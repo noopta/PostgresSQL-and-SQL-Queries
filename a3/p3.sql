@@ -1,0 +1,1 @@
+create or replace function p3(accountNum Char, theName Char, userProvince Char, creditLimit INTEGER) returns table(account char, cname char, province char, cbalance NUMERIC(10,2), crlimit INTEGER) LANGUAGE 'plpgsql' AS $BODY$ begin INSERT INTO c VALUES (accountNum, theName, userProvince, 0.00, creditLimit);RETURN QUERY( SELECT * from c); end; $BODY$;
